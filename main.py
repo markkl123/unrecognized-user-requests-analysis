@@ -7,13 +7,13 @@ from compare_clustering_solutions import evaluate_clustering
 import hdbscan
 
 
-
 def cluster_requests(requests, min_size):
     # Convert requests to embeddings
     embeddings = SentenceTransformer('all-MiniLM-L6-v2').encode(requests)
 
     # Perform clustering
-    clusters = np.array(hdbscan.HDBSCAN(min_cluster_size=8, metric='euclidean').fit(embeddings).labels_)
+    # clusters = np.array(hdbscan.HDBSCAN(min_cluster_size=8, metric='euclidean').fit(embeddings).labels_)
+    clusters = np.array(DBSCAN(eps=0.7, min_samples=5).fit(embeddings).labels_)
     n_clusters = len(set(clusters)) - (1 if -1 in clusters else 0)
 
     # Remove clusters that are too small
