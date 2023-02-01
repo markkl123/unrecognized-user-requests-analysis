@@ -4,6 +4,8 @@ import pandas as pd
 from sentence_transformers import SentenceTransformer
 from sklearn.cluster import DBSCAN
 from compare_clustering_solutions import evaluate_clustering
+import hdbscan
+
 
 
 def cluster_requests(requests, min_size):
@@ -11,7 +13,7 @@ def cluster_requests(requests, min_size):
     embeddings = SentenceTransformer('all-MiniLM-L6-v2').encode(requests)
 
     # Perform clustering
-    clusters = np.array(DBSCAN().fit(embeddings).labels_)
+    clusters = np.array(hdbscan.HDBSCAN(min_cluster_size=8, metric='euclidean').fit(embeddings).labels_)
     n_clusters = len(set(clusters)) - (1 if -1 in clusters else 0)
 
     # Remove clusters that are too small
