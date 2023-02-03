@@ -1,7 +1,7 @@
 {
     "cluster_list": [
         {
-            "cluster_name": "name0",
+            "cluster_name": "should i wear",
             "representative_sentences": [
                 "rep0",
                 "rep1",
@@ -54,7 +54,7 @@
             ]
         },
         {
-            "cluster_name": "name1",
+            "cluster_name": "is there a",
             "representative_sentences": [
                 "rep0",
                 "rep1",
@@ -417,7 +417,7 @@
             ]
         },
         {
-            "cluster_name": "name3",
+            "cluster_name": "paid sick leave",
             "representative_sentences": [
                 "rep0",
                 "rep1",
@@ -455,7 +455,7 @@
             ]
         },
         {
-            "cluster_name": "name4",
+            "cluster_name": "go to the",
             "representative_sentences": [
                 "rep0",
                 "rep1",
@@ -479,7 +479,7 @@
             ]
         },
         {
-            "cluster_name": "name5",
+            "cluster_name": "i have a",
             "representative_sentences": [
                 "rep0",
                 "rep1",
@@ -500,7 +500,7 @@
             ]
         },
         {
-            "cluster_name": "name7",
+            "cluster_name": "can i get",
             "representative_sentences": [
                 "rep0",
                 "rep1",
@@ -579,7 +579,7 @@
             ]
         },
         {
-            "cluster_name": "name8",
+            "cluster_name": "do i have",
             "representative_sentences": [
                 "rep0",
                 "rep1",
@@ -645,7 +645,7 @@
             ]
         },
         {
-            "cluster_name": "name9",
+            "cluster_name": "apply for unemployment",
             "representative_sentences": [
                 "rep0",
                 "rep1",
@@ -670,7 +670,7 @@
             ]
         },
         {
-            "cluster_name": "name13",
+            "cluster_name": "what are the",
             "representative_sentences": [
                 "rep0",
                 "rep1",
@@ -718,7 +718,7 @@
             ]
         },
         {
-            "cluster_name": "name15",
+            "cluster_name": "is covid19 contagious",
             "representative_sentences": [
                 "rep0",
                 "rep1",
@@ -745,7 +745,7 @@
             ]
         },
         {
-            "cluster_name": "name16",
+            "cluster_name": "go back to",
             "representative_sentences": [
                 "rep0",
                 "rep1",
@@ -775,7 +775,7 @@
             ]
         },
         {
-            "cluster_name": "name18",
+            "cluster_name": "are schools open",
             "representative_sentences": [
                 "rep0",
                 "rep1",
@@ -843,7 +843,7 @@
             ]
         },
         {
-            "cluster_name": "name28",
+            "cluster_name": "can i go",
             "representative_sentences": [
                 "rep0",
                 "rep1",

@@ -1,15 +1,23 @@
 import json
+import re
 import numpy as np
 import pandas as pd
 from sentence_transformers import SentenceTransformer
 from sklearn.cluster import DBSCAN
 from compare_clustering_solutions import evaluate_clustering
+from collections import Counter
 import hdbscan
 
 
-def cluster_requests(requests, min_size):
+log = print
+print = lambda x: x
+
+
+def cluster_requests(all_requests, min_size):
+    print(f'cluster {len(all_requests)} requests, with minimum of {min_size} requests per cluster')
+
     # Convert requests to embeddings
-    embeddings = SentenceTransformer('all-MiniLM-L6-v2').encode(requests)
+    embeddings = SentenceTransformer('all-MiniLM-L6-v2').encode(all_requests)
 
     # Perform clustering
     # clusters = np.array(hdbscan.HDBSCAN(min_cluster_size=8, metric='euclidean').fit(embeddings).labels_)
@@ -26,17 +34,49 @@ def cluster_requests(requests, min_size):
     return embeddings, clusters
 
 
-def extract_cluster_representatives(requests, embeddings, clusters, num_rep):
-    # todo: implement representatives extraction
-    return {cluster_num: [f'rep{i}' for i in range(num_rep)] for cluster_num in list(set(clusters[clusters > -1]))}
+def extract_representatives(requests, embeddings, num_rep):
+    # todo: find representatives (find most similar to 3 PCA components??)
+    return [f'rep{i}' for i in range(num_rep)]
 
 
-def construct_cluster_names(requests, embeddings, clusters, rep_dict):
-    # todo: implement names construction
-    return {cluster_num: f'name{cluster_num}' for cluster_num in list(set(clusters[clusters > -1]))}
+def extract_cluster_representatives(all_requests, all_embeddings, all_clusters, num_rep):
+    print(f'choose {num_rep} representatives for each cluster')
+
+    return {
+        cluster_num: extract_representatives(all_requests[all_clusters == cluster_num],
+                                             all_embeddings[all_clusters == cluster_num],
+                                             num_rep)
+        for cluster_num in list(set(all_clusters[all_clusters > -1]))
+    }
+
+
+def construct_name(requests: list[str]):
+    # todo: construct name (most common tri-gram or bi-gram, excluding stop word?? / something with POS??)
+    # todo: trigrams alone is not so good, need to drop stopword or verify POS fluency
+    NGRAM = 3
+    ngrams_counter = Counter()
+
+    for req in requests:
+        words = re.sub(r'[^\w\s\']', '', req).split()
+        ngrams = [' '.join(words[i:i+NGRAM]) for i in range(len(words) - (NGRAM - 1))]
+        ngrams_counter.update(ngrams)
+
+    print(ngrams_counter.most_common(1))
+    return ngrams_counter.most_common(1)[0][0]
+
+
+def construct_cluster_names(all_requests, all_clusters):
+    print(f'construct a meaningful name for each cluster')
+
+    return {
+        cluster_num: construct_name(all_requests[all_clusters == cluster_num])
+        for cluster_num in list(set(all_clusters[all_clusters > -1]))
+    }
 
 
 def save_cluster_results(output_file, requests, clusters, rep_dict, names_dict):
+    print(f'save results in {output_file}')
+
     results = {
         "cluster_list": [
             {
@@ -54,20 +94,21 @@ def save_cluster_results(output_file, requests, clusters, rep_dict, names_dict):
 
 
 def analyze_unrecognized_requests(data_file, output_file, num_rep, min_size):
-
     print(f'start analyzing unrecognized requests from {data_file}')
+
+    # Read all requests
     requests = pd.read_csv(data_file)['request'].to_numpy()
 
-    print(f'cluster {len(requests)} requests, with minimum of {min_size} requests per cluster')
+    # First, try cluster the requests
     embeddings, clusters = cluster_requests(requests, min_size)
 
-    print(f'choose {num_rep} representatives for each cluster')
+    # Then, for each cluster extract the most representative instances
     rep_dict = extract_cluster_representatives(requests, embeddings, clusters, num_rep)
 
-    print(f'construct a meaningful name for each cluster')
-    names_dict = construct_cluster_names(requests, embeddings, clusters, rep_dict)
+    # Finally, give each cluster a meaning full name
+    names_dict = construct_cluster_names(requests, clusters)
 
-    print(f'save results in {output_file}')
+    # Store the results
     save_cluster_results(output_file, requests, clusters, rep_dict, names_dict)
 
 
