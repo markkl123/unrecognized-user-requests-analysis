@@ -9,10 +9,6 @@ from collections import Counter
 import hdbscan
 
 
-log = print
-print = lambda x: x
-
-
 def cluster_requests(all_requests, min_size):
     print(f'cluster {len(all_requests)} requests, with minimum of {min_size} requests per cluster')
 
