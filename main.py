@@ -9,6 +9,11 @@ from sklearn.decomposition import PCA
 from compare_clustering_solutions import evaluate_clustering
 from collections import Counter
 import hdbscan
+import nltk
+nltk.download('punkt')
+nltk.download('stopwords')
+nltk.download('averaged_perceptron_tagger')
+
 
 
 def cluster_requests(all_requests, min_size):
@@ -65,6 +70,36 @@ def extract_cluster_representatives(all_requests, all_embeddings, all_clusters, 
 
 
 def construct_name(requests: list[str]):
+    article_text = ''
+    for s in requests:
+        article_text += s
+    # Tokenize the article text into sentences
+    sentences = nltk.sent_tokenize(article_text)
+
+    # Define a function to extract the most frequent words in the sentences
+    def extract_words(sentences):
+        words = []
+        stop_words = set(nltk.corpus.stopwords.words("english"))
+        for sentence in sentences:
+            tokens = nltk.word_tokenize(sentence)
+            tagged_words = nltk.pos_tag(tokens)
+            words += [word for word, tag in tagged_words if
+                      tag in ["NN", "NNS", "NNP", "NNPS"] and word.lower() not in stop_words]
+        return words
+
+    # Extract the most frequent words from the sentences
+    words = extract_words(sentences)
+
+    # Define a function to find the most frequent words in the sentences
+    def find_title(words):
+        fd = nltk.FreqDist(words)
+        title = fd.most_common(1)[0][0]
+        return title
+
+    # Find the most frequent words in the sentences
+    title = find_title(words)
+
+    return title
     """
         TODO: options to consider
         1. trigrams alone is not so good

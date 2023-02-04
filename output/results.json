@@ -1,7 +1,7 @@
 {
     "cluster_list": [
         {
-            "cluster_name": "respirators",
+            "cluster_name": "respirator",
             "representative_sentences": [
                 "when will masks be available?",
                 "when should i wear a mask?",
@@ -417,7 +417,7 @@
             ]
         },
         {
-            "cluster_name": "sick leave",
+            "cluster_name": "leave",
             "representative_sentences": [
                 "paid sick leave",
                 "duration of paid sick leave?",
@@ -455,7 +455,7 @@
             ]
         },
         {
-            "cluster_name": "the grocery store",
+            "cluster_name": "store",
             "representative_sentences": [
                 "can we go to the store?",
                 "is it safe to go to the grocery store?",
@@ -479,7 +479,7 @@
             ]
         },
         {
-            "cluster_name": "sore throat",
+            "cluster_name": "sore",
             "representative_sentences": [
                 "my throat hurts and i have a headache as well",
                 "my throat and head hurt",
@@ -500,7 +500,7 @@
             ]
         },
         {
-            "cluster_name": "symptoms",
+            "cluster_name": "test",
             "representative_sentences": [
                 "should i get tested if i do not have symptoms but think i've been exposed?",
                 "how do you test",
@@ -718,7 +718,7 @@
             ]
         },
         {
-            "cluster_name": "is covid19 contagious",
+            "cluster_name": "person",
             "representative_sentences": [
                 "is coronavirus contagious?",
                 "when does a person become contagious?",
@@ -745,7 +745,7 @@
             ]
         },
         {
-            "cluster_name": "school",
+            "cluster_name": "kids",
             "representative_sentences": [
                 "when will my good go back to school?",
                 "i live in 78709. when will my kids high school reopen?",
@@ -843,7 +843,7 @@
             ]
         },
         {
-            "cluster_name": "can i go",
+            "cluster_name": "outsideam",
             "representative_sentences": [
                 "am i safe outside?",
                 "is it dangerous to go outside?",
