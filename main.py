@@ -4,12 +4,17 @@ import numpy as np
 import pandas as pd
 from sentence_transformers import SentenceTransformer
 from sklearn.cluster import DBSCAN
+from sklearn.decomposition import PCA
 from compare_clustering_solutions import evaluate_clustering
 from collections import Counter
 import hdbscan
 
 
 def cluster_requests(all_requests, min_size):
+    """
+        TODO: options to consider
+        1. find better algorithm
+    """
     print(f'cluster {len(all_requests)} requests, with minimum of {min_size} requests per cluster')
 
     # Convert requests to embeddings
@@ -31,8 +36,16 @@ def cluster_requests(all_requests, min_size):
 
 
 def extract_representatives(requests, embeddings, num_rep):
-    # todo: find representatives (find most similar to 3 PCA components??)
-    return [f'rep{i}' for i in range(num_rep)]
+    """
+        TODO: options to consider
+        1. PCA as a starting point looks pretty good
+    """
+    components = PCA(n_components=num_rep).fit(embeddings).components_
+
+    return [
+        requests[np.argmin(np.linalg.norm(embeddings - component, axis=1))]
+        for component in components
+    ]
 
 
 def extract_cluster_representatives(all_requests, all_embeddings, all_clusters, num_rep):
@@ -47,8 +60,13 @@ def extract_cluster_representatives(all_requests, all_embeddings, all_clusters, 
 
 
 def construct_name(requests: list[str]):
-    # todo: construct name (most common tri-gram or bi-gram, excluding stop word?? / something with POS??)
-    # todo: trigrams alone is not so good, need to drop stopword or verify POS fluency
+    """
+        TODO: options to consider
+        1. trigrams alone is not so good
+        2. use POS to find more fluent n-grams (proper POS phrases)
+        3. lean towards n-grams with less stopwords or words that has little semantic meaning
+    """
+
     NGRAM = 3
     ngrams_counter = Counter()
 
@@ -57,7 +75,6 @@ def construct_name(requests: list[str]):
         ngrams = [' '.join(words[i:i+NGRAM]) for i in range(len(words) - (NGRAM - 1))]
         ngrams_counter.update(ngrams)
 
-    print(ngrams_counter.most_common(1))
     return ngrams_counter.most_common(1)[0][0]
 
 
