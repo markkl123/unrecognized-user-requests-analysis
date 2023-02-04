@@ -1,7 +1,7 @@
 {
     "cluster_list": [
         {
-            "cluster_name": "respirator",
+            "cluster_name": "Why are there no masks and respirators in pharmacies?",
             "representative_sentences": [
                 "when will masks be available?",
                 "when should i wear a mask?",
@@ -54,7 +54,7 @@
             ]
         },
         {
-            "cluster_name": "coronavirus",
+            "cluster_name": "What is coronavirus?",
             "representative_sentences": [
                 "what is covid19",
                 "number of infected",
@@ -417,7 +417,7 @@
             ]
         },
         {
-            "cluster_name": "leave",
+            "cluster_name": "Can i still get paid sick leave for 14 days if i get corona.",
             "representative_sentences": [
                 "paid sick leave",
                 "duration of paid sick leave?",
@@ -455,7 +455,7 @@
             ]
         },
         {
-            "cluster_name": "store",
+            "cluster_name": "Is it safe to go to the grocery store?",
             "representative_sentences": [
                 "can we go to the store?",
                 "is it safe to go to the grocery store?",
@@ -479,7 +479,7 @@
             ]
         },
         {
-            "cluster_name": "sore",
+            "cluster_name": "i have a sore throat.",
             "representative_sentences": [
                 "my throat hurts and i have a headache as well",
                 "my throat and head hurt",
@@ -500,7 +500,7 @@
             ]
         },
         {
-            "cluster_name": "test",
+            "cluster_name": "Can you tell me how/where i can get tested?",
             "representative_sentences": [
                 "should i get tested if i do not have symptoms but think i've been exposed?",
                 "how do you test",
@@ -579,7 +579,7 @@
             ]
         },
         {
-            "cluster_name": "quarantine",
+            "cluster_name": "How long do i have to stay in quarantine?",
             "representative_sentences": [
                 "i live in an apartment with my girlfriend, but i am under quarantine now.  what should i do?",
                 "if infected, how long should individuals self-quarantine?",
@@ -645,7 +645,7 @@
             ]
         },
         {
-            "cluster_name": "unemployment",
+            "cluster_name": "How to apply for unemployment.",
             "representative_sentences": [
                 "where can i apply for unemployment",
                 "how do i apply for unemployment benefits due to covid-19?",
@@ -670,7 +670,7 @@
             ]
         },
         {
-            "cluster_name": "symptoms",
+            "cluster_name": "i thing i feel symptoms of the disease.",
             "representative_sentences": [
                 "i have illness symptoms",
                 "what are the common symptoms",
@@ -718,7 +718,7 @@
             ]
         },
         {
-            "cluster_name": "person",
+            "cluster_name": "How contagious is covid-19?",
             "representative_sentences": [
                 "is coronavirus contagious?",
                 "when does a person become contagious?",
@@ -745,7 +745,7 @@
             ]
         },
         {
-            "cluster_name": "kids",
+            "cluster_name": "When can my high school senior go back to school.",
             "representative_sentences": [
                 "when will my good go back to school?",
                 "i live in 78709. when will my kids high school reopen?",
@@ -775,7 +775,7 @@
             ]
         },
         {
-            "cluster_name": "schools",
+            "cluster_name": "Is the school closed?",
             "representative_sentences": [
                 "when will the schools open?",
                 "when will schools close?",
@@ -843,7 +843,7 @@
             ]
         },
         {
-            "cluster_name": "outsideam",
+            "cluster_name": "Is it dangerous to go outside?",
             "representative_sentences": [
                 "am i safe outside?",
                 "is it dangerous to go outside?",
