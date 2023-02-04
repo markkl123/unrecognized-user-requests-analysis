@@ -3,9 +3,9 @@
         {
             "cluster_name": "should i wear",
             "representative_sentences": [
-                "rep0",
-                "rep1",
-                "rep2"
+                "when will masks be available?",
+                "when should i wear a mask?",
+                "i'd like a respirator"
             ],
             "requests": [
                 "i'd like a respirator",
@@ -56,9 +56,9 @@
         {
             "cluster_name": "is there a",
             "representative_sentences": [
-                "rep0",
-                "rep1",
-                "rep2"
+                "what is covid19",
+                "number of infected",
+                "i live in austin, where can i get tested for covid-19"
             ],
             "requests": [
                 "can dogs get the corona virus?",
@@ -419,9 +419,9 @@
         {
             "cluster_name": "paid sick leave",
             "representative_sentences": [
-                "rep0",
-                "rep1",
-                "rep2"
+                "paid sick leave",
+                "duration of paid sick leave?",
+                "if i get sick will i continue to get paid?"
             ],
             "requests": [
                 "what if i don't have paid sick leave?",
@@ -457,9 +457,9 @@
         {
             "cluster_name": "go to the",
             "representative_sentences": [
-                "rep0",
-                "rep1",
-                "rep2"
+                "can we go to the store?",
+                "is it safe to go to the grocery store?",
+                "can i still go grocery shopping"
             ],
             "requests": [
                 "can we go to the store?",
@@ -481,9 +481,9 @@
         {
             "cluster_name": "i have a",
             "representative_sentences": [
-                "rep0",
-                "rep1",
-                "rep2"
+                "my throat hurts and i have a headache as well",
+                "my throat and head hurt",
+                "i have headache and sore throat ..what should i do ?"
             ],
             "requests": [
                 "i have sore throat",
@@ -502,9 +502,9 @@
         {
             "cluster_name": "can i get",
             "representative_sentences": [
-                "rep0",
-                "rep1",
-                "rep2"
+                "should i get tested if i do not have symptoms but think i've been exposed?",
+                "how do you test",
+                "i have symptoms. should i get tested?"
             ],
             "requests": [
                 "do i need to get tested?",
@@ -581,9 +581,9 @@
         {
             "cluster_name": "do i have",
             "representative_sentences": [
-                "rep0",
-                "rep1",
-                "rep2"
+                "i live in an apartment with my girlfriend, but i am under quarantine now.  what should i do?",
+                "if infected, how long should individuals self-quarantine?",
+                "who is responsible for quarantined people?"
             ],
             "requests": [
                 "how long do i have to stay in quarantine?",
@@ -647,9 +647,9 @@
         {
             "cluster_name": "apply for unemployment",
             "representative_sentences": [
-                "rep0",
-                "rep1",
-                "rep2"
+                "where can i apply for unemployment",
+                "how do i apply for unemployment benefits due to covid-19?",
+                "where can i apply for unemployment"
             ],
             "requests": [
                 "how to apply for unemployment",
@@ -672,9 +672,9 @@
         {
             "cluster_name": "what are the",
             "representative_sentences": [
-                "rep0",
-                "rep1",
-                "rep2"
+                "i have illness symptoms",
+                "what are the common symptoms",
+                "what symptoms are typical with this disease"
             ],
             "requests": [
                 "what are symptoms",
@@ -720,9 +720,9 @@
         {
             "cluster_name": "is covid19 contagious",
             "representative_sentences": [
-                "rep0",
-                "rep1",
-                "rep2"
+                "is coronavirus contagious?",
+                "when does a person become contagious?",
+                "how contagious is covid-19?"
             ],
             "requests": [
                 "is covid19 contagious?",
@@ -747,9 +747,9 @@
         {
             "cluster_name": "go back to",
             "representative_sentences": [
-                "rep0",
-                "rep1",
-                "rep2"
+                "when will my good go back to school?",
+                "i live in 78709. when will my kids high school reopen?",
+                "when can my high school senior go back to school"
             ],
             "requests": [
                 "when can my high school senior go back to school",
@@ -777,9 +777,9 @@
         {
             "cluster_name": "are schools open",
             "representative_sentences": [
-                "rep0",
-                "rep1",
-                "rep2"
+                "when will the schools open?",
+                "when will schools close?",
+                "when will my kids school reopen"
             ],
             "requests": [
                 "is my school closed?",
@@ -845,9 +845,9 @@
         {
             "cluster_name": "can i go",
             "representative_sentences": [
-                "rep0",
-                "rep1",
-                "rep2"
+                "am i safe outside?",
+                "is it dangerous to go outside?",
+                "when can i go outside"
             ],
             "requests": [
                 "when can i go outside",
