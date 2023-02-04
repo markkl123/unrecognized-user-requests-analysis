@@ -2,6 +2,7 @@ import json
 import re
 import numpy as np
 import pandas as pd
+import spacy
 from sentence_transformers import SentenceTransformer
 from sklearn.cluster import DBSCAN
 from sklearn.decomposition import PCA
@@ -14,6 +15,10 @@ def cluster_requests(all_requests, min_size):
     """
         TODO: options to consider
         1. find better algorithm
+        2. preprocess the sentences:
+            - remove stop words
+            - use lemmatization
+            - remove punctuation
     """
     print(f'cluster {len(all_requests)} requests, with minimum of {min_size} requests per cluster')
 
@@ -63,19 +68,25 @@ def construct_name(requests: list[str]):
     """
         TODO: options to consider
         1. trigrams alone is not so good
-        2. use POS to find more fluent n-grams (proper POS phrases)
-        3. lean towards n-grams with less stopwords or words that has little semantic meaning
+        2. noun chunks works ok if the noun is repeated often, otherwise it misses. 
     """
+    def is_meaningful_phrase(phrase_span):
+        return sum([token.is_stop for token in phrase_span]) / len(phrase_span) < 0.5
 
-    NGRAM = 3
-    ngrams_counter = Counter()
+    nlp = spacy.load("en_core_web_sm")
 
+    phrases = Counter()
     for req in requests:
-        words = re.sub(r'[^\w\s\']', '', req).split()
-        ngrams = [' '.join(words[i:i+NGRAM]) for i in range(len(words) - (NGRAM - 1))]
-        ngrams_counter.update(ngrams)
+        phrases.update([c.text for c in nlp(req).noun_chunks if is_meaningful_phrase(c)])
 
-    return ngrams_counter.most_common(1)[0][0]
+    if len(phrases.most_common()) == 0:
+        NGRAM = 3
+        for req in requests:
+            words = re.sub(r'[^\w\s\'-]', '', req).split()
+            ngrams = [' '.join(words[i:i + NGRAM]) for i in range(len(words) - (NGRAM - 1))]
+            phrases.update(ngrams)
+
+    return phrases.most_common(1)[0][0]
 
 
 def construct_cluster_names(all_requests, all_clusters):
