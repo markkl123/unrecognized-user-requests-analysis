@@ -1,7 +1,7 @@
 {
     "cluster_list": [
         {
-            "cluster_name": "should i wear",
+            "cluster_name": "respirators",
             "representative_sentences": [
                 "when will masks be available?",
                 "when should i wear a mask?",
@@ -54,7 +54,7 @@
             ]
         },
         {
-            "cluster_name": "is there a",
+            "cluster_name": "coronavirus",
             "representative_sentences": [
                 "what is covid19",
                 "number of infected",
@@ -417,7 +417,7 @@
             ]
         },
         {
-            "cluster_name": "paid sick leave",
+            "cluster_name": "sick leave",
             "representative_sentences": [
                 "paid sick leave",
                 "duration of paid sick leave?",
@@ -455,7 +455,7 @@
             ]
         },
         {
-            "cluster_name": "go to the",
+            "cluster_name": "the grocery store",
             "representative_sentences": [
                 "can we go to the store?",
                 "is it safe to go to the grocery store?",
@@ -479,7 +479,7 @@
             ]
         },
         {
-            "cluster_name": "i have a",
+            "cluster_name": "sore throat",
             "representative_sentences": [
                 "my throat hurts and i have a headache as well",
                 "my throat and head hurt",
@@ -500,7 +500,7 @@
             ]
         },
         {
-            "cluster_name": "can i get",
+            "cluster_name": "symptoms",
             "representative_sentences": [
                 "should i get tested if i do not have symptoms but think i've been exposed?",
                 "how do you test",
@@ -579,7 +579,7 @@
             ]
         },
         {
-            "cluster_name": "do i have",
+            "cluster_name": "quarantine",
             "representative_sentences": [
                 "i live in an apartment with my girlfriend, but i am under quarantine now.  what should i do?",
                 "if infected, how long should individuals self-quarantine?",
@@ -645,7 +645,7 @@
             ]
         },
         {
-            "cluster_name": "apply for unemployment",
+            "cluster_name": "unemployment",
             "representative_sentences": [
                 "where can i apply for unemployment",
                 "how do i apply for unemployment benefits due to covid-19?",
@@ -670,7 +670,7 @@
             ]
         },
         {
-            "cluster_name": "what are the",
+            "cluster_name": "symptoms",
             "representative_sentences": [
                 "i have illness symptoms",
                 "what are the common symptoms",
@@ -745,7 +745,7 @@
             ]
         },
         {
-            "cluster_name": "go back to",
+            "cluster_name": "school",
             "representative_sentences": [
                 "when will my good go back to school?",
                 "i live in 78709. when will my kids high school reopen?",
@@ -775,7 +775,7 @@
             ]
         },
         {
-            "cluster_name": "are schools open",
+            "cluster_name": "schools",
             "representative_sentences": [
                 "when will the schools open?",
                 "when will schools close?",
