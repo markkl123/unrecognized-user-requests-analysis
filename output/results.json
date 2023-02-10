@@ -1,7 +1,7 @@
 {
     "cluster_list": [
         {
-            "cluster_name": "Why are there no masks and respirators in pharmacies?",
+            "cluster_name": "Wear respirator",
             "representative_sentences": [
                 "when will masks be available?",
                 "when should i wear a mask?",
@@ -54,7 +54,7 @@
             ]
         },
         {
-            "cluster_name": "What is coronavirus?",
+            "cluster_name": "Covid disease",
             "representative_sentences": [
                 "what is covid19",
                 "number of infected",
@@ -120,7 +120,7 @@
                 "is there a test kit for the coronavirus?",
                 "what's the difference between flu and coronavirus?",
                 "how to treat covid?",
-                "what\u2019s the best way to prevent coronavirus?",
+                "what's the best way to prevent coronavirus?",
                 "can dogs get covid19?",
                 "how do i avoid coronavirus",
                 "how does coronavirus spread?",
@@ -163,7 +163,7 @@
                 "how does the infection spread",
                 "sars vs corona virus?",
                 "can dogs get the corona virus?",
-                "what is covid-19\\",
+                "what is covid-19",
                 "what is covid-19?",
                 "what is the best way to prevent coronavirus",
                 "how does the virus spread",
@@ -253,7 +253,7 @@
                 "how does covid-19 spread",
                 "spreading covid to others",
                 "how does coronavirus spread?",
-                "what is covid-19\\",
+                "what is covid-19",
                 "what can i do to prevent getting coronavirus?",
                 "what is the corona virus",
                 "is this worse than the flu?",
@@ -285,12 +285,12 @@
                 "has the cause of covid-19 been identified?",
                 "how many people total have coronavirus?",
                 "what to do if i think i have covid?",
-                "what is covid-19\\",
+                "what is covid-19",
                 "how do i get tested for covid -19",
                 "is the coronavirus the same as mers?",
                 "what is the treatment for covid-19?",
                 "what medicine should i be taking for covid 19",
-                "what is covid-19\\",
+                "what is covid-19",
                 "where do i go for covid19 testing?",
                 "how many people have the virus in our county",
                 "coronavirus test kit",
@@ -320,7 +320,7 @@
                 "is there a cure for covid-19?",
                 "origin of coronavirus",
                 "what are the most common symptoms of covid?",
-                "what is covid-19\\",
+                "what is covid-19",
                 "how can i prevent coronavirus",
                 "how can covid be transmitted",
                 "how is covid transmitted?",
@@ -340,7 +340,7 @@
                 "sars vs corona virus?",
                 "how long does covid-19 last?",
                 "what will help me prevent covid infection?",
-                "what is covid-19\\",
+                "what is covid-19",
                 "how many people have the virus?",
                 "is there a cure for covid 19?",
                 "what should i do to contain the spread of the virus",
@@ -361,7 +361,7 @@
                 "how does the infection spread",
                 "is covid a disease?",
                 "what is the difference between flu and coronavirus",
-                "what is covid-19\\",
+                "what is covid-19",
                 "how to avoid catching covid-19.",
                 "what is covid-19",
                 "i heard about a medication for coronavirus treatment",
@@ -417,7 +417,7 @@
             ]
         },
         {
-            "cluster_name": "Can i still get paid sick leave for 14 days if i get corona.",
+            "cluster_name": " paid sick leave",
             "representative_sentences": [
                 "paid sick leave",
                 "duration of paid sick leave?",
@@ -455,7 +455,7 @@
             ]
         },
         {
-            "cluster_name": "Is it safe to go to the grocery store?",
+            "cluster_name": "Grocery stores",
             "representative_sentences": [
                 "can we go to the store?",
                 "is it safe to go to the grocery store?",
@@ -479,7 +479,7 @@
             ]
         },
         {
-            "cluster_name": "i have a sore throat.",
+            "cluster_name": "ihave sore throat",
             "representative_sentences": [
                 "my throat hurts and i have a headache as well",
                 "my throat and head hurt",
@@ -500,7 +500,7 @@
             ]
         },
         {
-            "cluster_name": "Can you tell me how/where i can get tested?",
+            "cluster_name": " need tested",
             "representative_sentences": [
                 "should i get tested if i do not have symptoms but think i've been exposed?",
                 "how do you test",
@@ -579,7 +579,7 @@
             ]
         },
         {
-            "cluster_name": "How long do i have to stay in quarantine?",
+            "cluster_name": "Quarantine work",
             "representative_sentences": [
                 "i live in an apartment with my girlfriend, but i am under quarantine now.  what should i do?",
                 "if infected, how long should individuals self-quarantine?",
@@ -645,7 +645,7 @@
             ]
         },
         {
-            "cluster_name": "How to apply for unemployment.",
+            "cluster_name": " apply unemployment",
             "representative_sentences": [
                 "where can i apply for unemployment",
                 "how do i apply for unemployment benefits due to covid-19?",
@@ -670,7 +670,7 @@
             ]
         },
         {
-            "cluster_name": "i thing i feel symptoms of the disease.",
+            "cluster_name": "Disease",
             "representative_sentences": [
                 "i have illness symptoms",
                 "what are the common symptoms",
@@ -718,7 +718,7 @@
             ]
         },
         {
-            "cluster_name": "How contagious is covid-19?",
+            "cluster_name": " covid contagious",
             "representative_sentences": [
                 "is coronavirus contagious?",
                 "when does a person become contagious?",
@@ -745,7 +745,7 @@
             ]
         },
         {
-            "cluster_name": "When can my high school senior go back to school.",
+            "cluster_name": "Kids high school reopen",
             "representative_sentences": [
                 "when will my good go back to school?",
                 "i live in 78709. when will my kids high school reopen?",
@@ -775,7 +775,7 @@
             ]
         },
         {
-            "cluster_name": "Is the school closed?",
+            "cluster_name": "Kids school closed",
             "representative_sentences": [
                 "when will the schools open?",
                 "when will schools close?",
@@ -843,7 +843,7 @@
             ]
         },
         {
-            "cluster_name": "Is it dangerous to go outside?",
+            "cluster_name": " outside",
             "representative_sentences": [
                 "am i safe outside?",
                 "is it dangerous to go outside?",

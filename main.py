@@ -1,16 +1,21 @@
 import json
-import re
 import numpy as np
 import pandas as pd
 import spacy
 from sentence_transformers import SentenceTransformer
 from sklearn.cluster import DBSCAN
 from sklearn.decomposition import PCA
-from torch import cosine_similarity
+from transformers import pipeline, set_seed
 
 from compare_clustering_solutions import evaluate_clustering
 from collections import Counter
 import hdbscan
+
+import gensim
+from gensim.utils import simple_preprocess
+from gensim.parsing.preprocessing import STOPWORDS
+from nltk.stem import WordNetLemmatizer, SnowballStemmer
+from nltk.stem.porter import *
 
 def cluster_requests(all_requests, min_size):
     """
@@ -66,11 +71,40 @@ def extract_cluster_representatives(all_requests, all_embeddings, all_clusters, 
 
 
 def construct_name(requests: list[str]):
+    article = ''
+
+
+    stemmer = SnowballStemmer("english")
+
+    def preprocess(text):
+        result = []
+        for token in simple_preprocess(text):
+            if token not in STOPWORDS and len(token) > 2:
+                result.append(token)
+        return ' '.join(result)
+
+    for s in requests:
+        article += (preprocess(s) + '. ')
+
+    #print(article)
+    # Set the seed for reproducibility
+    set_seed(42)
+
+    # Load the summarization model from the pipeline
+    summarization_model = pipeline("summarization",model='facebook/bart-large-cnn')
+
+    # Generate a summary for the article text
+    title = summarization_model(article[:1024], max_length=11, min_length=4, early_stopping=True)[0].get("summary_text")
+    title = title.split('?')[0]# + ['?' if '?' in title else ''][0]
+    title = title.split('.')[0]# + ['.' if '.' in title else ''][0]
+    print(title)
+ 
+    return title
     """
         TODO: options to consider
         1. look for some common ngram that has a probable POS structure
     """
-    return "name"
+    #return "name"
 
 
 def construct_cluster_names(all_requests, all_clusters):
