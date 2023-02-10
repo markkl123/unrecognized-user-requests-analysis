@@ -16,10 +16,10 @@ def cluster_requests(all_requests, min_size):
     """
         TODO: options to consider
         1. find better algorithm
-        2. preprocess the sentences:
-            - remove stop words
+        2. include UMAP and search for optimal parameters
+        3. TF-IDF
+            - remove stop words & punctuation
             - use lemmatization
-            - remove punctuation
     """
     print(f'cluster {len(all_requests)} requests, with minimum of {min_size} requests per cluster')
 
@@ -66,45 +66,11 @@ def extract_cluster_representatives(all_requests, all_embeddings, all_clusters, 
 
 
 def construct_name(requests: list[str]):
-    article = ''
-    for s in requests:
-        article += (s + '. ')
-
-    from transformers import pipeline, set_seed
-
-    # Set the seed for reproducibility
-    set_seed(42)
-
-    # Load the summarization model from the pipeline
-    summarization_model = pipeline("summarization",model='facebook/bart-large-cnn')
-
-    # Generate a summary for the article text
-    title = summarization_model(article[:1024], max_length=20, min_length=5, early_stopping=True)[0].get("summary_text")
-    title = title.split('?')[0] + ['?' if '?' in title else ''][0]
-    title = title.split('.')[0] + ['.' if '.' in title else ''][0]
-    return title
     """
         TODO: options to consider
-        1. trigrams alone is not so good
-        2. noun chunks works ok if the noun is repeated often, otherwise it misses. 
+        1. look for some common ngram that has a probable POS structure
     """
-    def is_meaningful_phrase(phrase_span):
-        return sum([token.is_stop for token in phrase_span]) / len(phrase_span) < 0.5
-
-    nlp = spacy.load("en_core_web_sm")
-
-    phrases = Counter()
-    for req in requests:
-        phrases.update([c.text for c in nlp(req).noun_chunks if is_meaningful_phrase(c)])
-
-    if len(phrases.most_common()) == 0:
-        NGRAM = 3
-        for req in requests:
-            words = re.sub(r'[^\w\s\'-]', '', req).split()
-            ngrams = [' '.join(words[i:i + NGRAM]) for i in range(len(words) - (NGRAM - 1))]
-            phrases.update(ngrams)
-
-    return phrases.most_common(1)[0][0]
+    return "name"
 
 
 def construct_cluster_names(all_requests, all_clusters):
