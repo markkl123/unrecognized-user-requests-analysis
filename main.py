@@ -78,7 +78,6 @@ def construct_name(requests: list[str]):
     title = summarization_model(article[:1024], max_length=11, min_length=4, early_stopping=True)[0].get("summary_text")
     title = title.split('?')[0]
     title = title.split('.')[0]
-    print(title)
  
     return title
 
