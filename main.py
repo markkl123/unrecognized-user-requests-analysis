@@ -1,47 +1,30 @@
 import json
 import numpy as np
 import pandas as pd
-import spacy
-from sentence_transformers import SentenceTransformer
-from sklearn.cluster import DBSCAN
+
 from sklearn.decomposition import PCA
-from transformers import pipeline, set_seed
-
-from compare_clustering_solutions import evaluate_clustering
-from collections import Counter
-import hdbscan
-
-import gensim
 from gensim.utils import simple_preprocess
 from gensim.parsing.preprocessing import STOPWORDS
-from nltk.stem import WordNetLemmatizer, SnowballStemmer
-from nltk.stem.porter import *
+from transformers import pipeline, set_seed
+from sentence_transformers import SentenceTransformer
+from sentence_transformers.util import community_detection
+
+from compare_clustering_solutions import evaluate_clustering
+
 
 def cluster_requests(all_requests, min_size):
-    """
-        TODO: options to consider
-        1. find better algorithm
-        2. include UMAP and search for optimal parameters
-        3. TF-IDF
-            - remove stop words & punctuation
-            - use lemmatization
-    """
     print(f'cluster {len(all_requests)} requests, with minimum of {min_size} requests per cluster')
 
     # Convert requests to embeddings
-    embeddings = SentenceTransformer('all-MiniLM-L6-v2').encode(all_requests)
+    embeddings = SentenceTransformer('all-MiniLM-L6-v2').encode(all_requests, convert_to_tensor=True)
 
     # Perform clustering
-    # clusters = np.array(hdbscan.HDBSCAN(min_cluster_size=8, metric='euclidean').fit(embeddings).labels_)
-    clusters = np.array(DBSCAN(eps=0.7, min_samples=5).fit(embeddings).labels_)
-    n_clusters = len(set(clusters)) - (1 if -1 in clusters else 0)
+    grouped_clusters = community_detection(embeddings, min_community_size=min_size, threshold=0.631)
 
-    # Remove clusters that are too small
-    for cluster_num in range(n_clusters):
-        cluster_mask = clusters == cluster_num
-
-        if cluster_mask.sum() < min_size:
-            clusters[cluster_mask] = -1
+    # Construct cluster id's list
+    clusters = np.full(len(embeddings), -1)
+    for cluster_id, embedding_ids in enumerate(grouped_clusters, start=1):
+        clusters[embedding_ids] = cluster_id
 
     return embeddings, clusters
 
@@ -49,7 +32,8 @@ def cluster_requests(all_requests, min_size):
 def extract_representatives(requests, embeddings, num_rep):
     """
         TODO: options to consider
-        1. PCA as a starting point looks pretty good
+        1. transform embeddings
+        2. select according to dimensions
     """
     components = PCA(n_components=num_rep).fit(embeddings).components_
 
@@ -70,11 +54,12 @@ def extract_cluster_representatives(all_requests, all_embeddings, all_clusters, 
     }
 
 
+# Load the summarization model from the pipeline
+summarization_model = pipeline("summarization", model='facebook/bart-large-cnn')
+
+
 def construct_name(requests: list[str]):
     article = ''
-
-
-    stemmer = SnowballStemmer("english")
 
     def preprocess(text):
         result = []
@@ -86,25 +71,16 @@ def construct_name(requests: list[str]):
     for s in requests:
         article += (preprocess(s) + '. ')
 
-    #print(article)
     # Set the seed for reproducibility
     set_seed(42)
 
-    # Load the summarization model from the pipeline
-    summarization_model = pipeline("summarization",model='facebook/bart-large-cnn')
-
     # Generate a summary for the article text
     title = summarization_model(article[:1024], max_length=11, min_length=4, early_stopping=True)[0].get("summary_text")
-    title = title.split('?')[0]# + ['?' if '?' in title else ''][0]
-    title = title.split('.')[0]# + ['.' if '.' in title else ''][0]
+    title = title.split('?')[0]
+    title = title.split('.')[0]
     print(title)
  
     return title
-    """
-        TODO: options to consider
-        1. look for some common ngram that has a probable POS structure
-    """
-    #return "name"
 
 
 def construct_cluster_names(all_requests, all_clusters):
