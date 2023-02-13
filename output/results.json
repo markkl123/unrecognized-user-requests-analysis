@@ -1,7 +1,7 @@
 {
     "cluster_list": [
         {
-            "cluster_name": "Covid",
+            "cluster_name": "covid contagious transmitted get",
             "representative_sentences": [
                 "what is corona virus?",
                 "what is covid19",
@@ -165,7 +165,7 @@
             ]
         },
         {
-            "cluster_name": "Corona virus",
+            "cluster_name": "coronavirus corona",
             "representative_sentences": [
                 "what is the difference between the flu and coronavirus",
                 "origin of coronavirus",
@@ -287,7 +287,7 @@
             ]
         },
         {
-            "cluster_name": "Test",
+            "cluster_name": "get tested",
             "representative_sentences": [
                 "i have symptoms. should i get tested?",
                 "how do you test",
@@ -364,7 +364,7 @@
             ]
         },
         {
-            "cluster_name": "Children school",
+            "cluster_name": "schools closed school kids",
             "representative_sentences": [
                 "when can my kids go back to school",
                 "are schools open",
@@ -441,7 +441,7 @@
             ]
         },
         {
-            "cluster_name": "People quarantine checked",
+            "cluster_name": "quarantine quarantined people long",
             "representative_sentences": [
                 "i live in an apartment with my girlfriend, but i am under quarantine now.  what should i do?",
                 "if infected, how long should individuals self-quarantine?",
@@ -510,7 +510,7 @@
             ]
         },
         {
-            "cluster_name": "Coronavirus symptoms",
+            "cluster_name": "symptoms illness common",
             "representative_sentences": [
                 "my girlfriend has symptoms of covid-19",
                 "i have illness symptoms",
@@ -564,7 +564,7 @@
             ]
         },
         {
-            "cluster_name": " paid sick leave",
+            "cluster_name": "sick paid",
             "representative_sentences": [
                 "will i get paid leave?",
                 "how long can i get paid sick leave",
@@ -610,7 +610,7 @@
             ]
         },
         {
-            "cluster_name": " respirator help",
+            "cluster_name": "respirator wear mask help",
             "representative_sentences": [
                 "when should i wear a mask?",
                 "can a mask help me?",
@@ -649,7 +649,7 @@
             ]
         },
         {
-            "cluster_name": "Covid",
+            "cluster_name": "covid treat symptoms pregnant",
             "representative_sentences": [
                 "is covid transmissible from animals?",
                 "what is the risk of covid for pregnant women?",
@@ -683,7 +683,7 @@
             ]
         },
         {
-            "cluster_name": " apply unemployment",
+            "cluster_name": "apply unemployment benefits",
             "representative_sentences": [
                 "i have a question about unemployment",
                 "how do i apply for unemployment benefits due to covid-19?",
@@ -715,7 +715,7 @@
             ]
         },
         {
-            "cluster_name": "Covid test results",
+            "cluster_name": "covid get",
             "representative_sentences": [
                 "how does covid spread",
                 "can pets get covid",
@@ -746,7 +746,7 @@
             ]
         },
         {
-            "cluster_name": "Grocery stores open",
+            "cluster_name": "go grocery store",
             "representative_sentences": [
                 "are grocery stores still open",
                 "are grocery stores still open",
@@ -774,7 +774,7 @@
             ]
         },
         {
-            "cluster_name": " respirators masks finally sold",
+            "cluster_name": "masks respirators available get",
             "representative_sentences": [
                 "why aren't there respirators?",
                 "where do people get protective masks or disinfectants?",
@@ -800,7 +800,7 @@
             ]
         },
         {
-            "cluster_name": "People infected",
+            "cluster_name": "many people virus infected",
             "representative_sentences": [
                 "will i die if i get coronavirus>",
                 "how many people have the virus?",
@@ -825,7 +825,7 @@
             ]
         },
         {
-            "cluster_name": "Dogs are more contagious than people",
+            "cluster_name": "covid get dogs become",
             "representative_sentences": [
                 "spreading covid to others",
                 "is it contagious",
@@ -849,7 +849,7 @@
             ]
         },
         {
-            "cluster_name": " return school",
+            "cluster_name": "go back kid",
             "representative_sentences": [
                 "when will teaching go back to work?",
                 "will there be school in the summer?",
@@ -873,7 +873,7 @@
             ]
         },
         {
-            "cluster_name": " outside",
+            "cluster_name": "go outside",
             "representative_sentences": [
                 "am i safe outside?",
                 "can i go to park",
@@ -897,11 +897,11 @@
             ]
         },
         {
-            "cluster_name": "'I hate",
+            "cluster_name": "hate like",
             "representative_sentences": [
                 "i don't like this",
                 "i hate you",
-                "i don't like this"
+                "i hate this"
             ],
             "requests": [
                 "i hate this",
@@ -920,7 +920,7 @@
             ]
         },
         {
-            "cluster_name": "ihave sore throat",
+            "cluster_name": "sore throat headache",
             "representative_sentences": [
                 "if i only have a sore throat is it coronavirus?",
                 "my throat and head hurt",
@@ -943,7 +943,7 @@
             ]
         },
         {
-            "cluster_name": " pets risk corona virus",
+            "cluster_name": "pets virus",
             "representative_sentences": [
                 "can the dog get sick with corona virus?",
                 "can pets contract the virus",
@@ -965,7 +965,7 @@
             ]
         },
         {
-            "cluster_name": "Think infected",
+            "cluster_name": "think infected get infection",
             "representative_sentences": [
                 "how does the infection spread",
                 "how does the infection spread",
@@ -987,7 +987,7 @@
             ]
         },
         {
-            "cluster_name": "Risk",
+            "cluster_name": "countries risk",
             "representative_sentences": [
                 "who is most at risk",
                 "which countries have been affected?",
@@ -1009,7 +1009,7 @@
             ]
         },
         {
-            "cluster_name": " coronavirus test kit",
+            "cluster_name": "test kit",
             "representative_sentences": [
                 "is there a vaccine?",
                 "is there a vaccine for this",
@@ -1030,7 +1030,7 @@
             ]
         },
         {
-            "cluster_name": "Covid vacation end",
+            "cluster_name": "long virus covid",
             "representative_sentences": [
                 "when does covid vacation end?",
                 "how long is the incubation period for covid-19",
@@ -1051,7 +1051,7 @@
             ]
         },
         {
-            "cluster_name": " lower temperature coronavirus",
+            "cluster_name": "spread best",
             "representative_sentences": [
                 "what medicines should i take if i have coronavirus",
                 "what is the best prevention?",
@@ -1072,7 +1072,7 @@
             ]
         },
         {
-            "cluster_name": " national parks closed",
+            "cluster_name": "parks open closed",
             "representative_sentences": [
                 "are the national parks closed?",
                 "will the parks and bike trails remain open?",
@@ -1096,7 +1096,7 @@
             "cluster_name": "",
             "representative_sentences": [
                 "who are you",
-                "who you are?",
+                "who are you",
                 "who you are?"
             ],
             "requests": [
@@ -1114,7 +1114,7 @@
             ]
         },
         {
-            "cluster_name": " return united states",
+            "cluster_name": "return united states",
             "representative_sentences": [
                 "can i return to the united states?",
                 "can i travel out of the country?",
@@ -1135,7 +1135,7 @@
             ]
         },
         {
-            "cluster_name": " tested corona",
+            "cluster_name": "test coronavirus tested detect",
             "representative_sentences": [
                 "my husband has coronavirus symptoms",
                 "where can i get tested for corona?",
