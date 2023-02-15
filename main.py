@@ -1,19 +1,28 @@
+# Basic
 import json
 import numpy as np
 import pandas as pd
+import re
+from time import time
+from collections import Counter
 
+# Scikit-learn
 from sklearn.decomposition import PCA
+
+# NLTK
+from nltk.util import ngrams
+
+# Gensim
 from gensim.utils import simple_preprocess
+from gensim.parsing import remove_stopwords
 from gensim.parsing.preprocessing import STOPWORDS
-from transformers import pipeline, set_seed
+from gensim.corpora import Dictionary
+
+# Transformers
 from sentence_transformers import SentenceTransformer
 from sentence_transformers.util import community_detection
-from nltk.corpus import stopwords
-from nltk.tokenize import word_tokenize, sent_tokenize
-from nltk.util import ngrams
-from gensim.corpora import Dictionary
-from gensim.models import LdaModel
 
+# Utils
 from compare_clustering_solutions import evaluate_clustering
 
 
@@ -21,7 +30,6 @@ def cluster_requests(all_requests, min_size):
     print(f'cluster {len(all_requests)} requests, with minimum of {min_size} requests per cluster')
 
     # Convert requests to embeddings
-
     embeddings = SentenceTransformer('all-MiniLM-L6-v2').encode(all_requests, convert_to_tensor=True)
 
     # Perform clustering
@@ -43,10 +51,10 @@ def extract_representatives(requests, embeddings, num_rep):
     """
     components = PCA(n_components=num_rep).fit(embeddings).components_
 
-    return [
+    return list(set([
         requests[np.argmin(np.linalg.norm(embeddings - component, axis=1))]
         for component in components
-    ]
+    ]))
 
 
 def extract_cluster_representatives(all_requests, all_embeddings, all_clusters, num_rep):
@@ -60,95 +68,54 @@ def extract_cluster_representatives(all_requests, all_embeddings, all_clusters, 
     }
 
 
-# Load the summarization model from the pipeline
-summarization_model = pipeline("summarization", model='facebook/bart-large-cnn')
+def create_cluster_dictionary(requests):
+    # Remove stop words, punctuation, lower, tokenize
+    preprocessed = list(map(simple_preprocess, map(remove_stopwords, requests)))
+
+    # Build dictionary
+    dictionary = Dictionary(preprocessed)
+
+    return {word: count for word, count in dictionary.most_common()}
 
 
-def construct_name(requests: list[str]):
-    article = ''
-    for s in requests:
-        article += (s + '.')
+def calc_ngram_score(ngram, num_occurrences, word_counts):
+    # (LENGTH + 1) * NUM_OCCURRENCES * WORD_COUNTS / (NUM_STOPWORDS + 1)
+    return ((len(ngram) + 1)
+            * num_occurrences
+            * np.prod([word_counts.get(word, 1) for word in ngram])
+            / (np.sum([word in STOPWORDS for word in ngram]) + 1))
 
 
-    def get_weighted_score(text, num_topics, num_words, n_min, n_max):
-        stop_words = set(stopwords.words("english"))
-        words = word_tokenize(text.lower())
-        words = [word for word in words if word.isalpha() and word not in stop_words]
+def rank_ngrams(requests, word_counts):
+    # Remove punctuation, lower, split
+    preprocessed = [re.sub(r'[^\w\s?!-]', '', req.lower()).split() for req in requests]
 
-        # Generate N-grams
-        ngrams_list = []
-        for n in range(n_min, n_max + 1):
-            for ngram in ngrams(words, n):
-                ngrams_list.append(list(ngram))
+    # calculating all ngram scores
+    ngram_counter = Counter()
 
-        # Create dictionary of words
-        dictionary = Dictionary([ngram for ngram in ngrams_list])
-        corpus = [dictionary.doc2bow(ngram) for ngram in ngrams_list]
+    # Count ngram occurrences
+    for n in range(2, 5):
+        for req in preprocessed:
+            ngram_counter.update(map(tuple, ngrams(req, n)))
 
-        # Train LDA model
-        if len(dictionary) == 0 or len(corpus) == 0:
-            return None
-        lda_model = LdaModel(corpus, num_topics=num_topics, id2word=dictionary)
+    # Convert to ngram scores
+    return {
+        ngram: calc_ngram_score(ngram, count, word_counts)
+        for ngram, count in ngram_counter.most_common()
+    }
 
-        # Get topic distribution for each ngram
-        topic_distributions = [lda_model.get_document_topics(ngram) for ngram in corpus]
 
-        # Get the most important words in each topic
-        important_words = {}
-        for topic_id, topic in lda_model.show_topics(num_topics=num_topics, num_words=num_words, formatted=False):
-            important_words[topic_id] = [word[0] for word in topic]
+def construct_name(requests):
+    # Count non-stopwords occurrences
+    word_counts = create_cluster_dictionary(requests)
 
-        # Calculate weighted score for each cluster
-        weighted_score = {}
-        for topic_id, topic_words in important_words.items():
-            weighted_score[topic_id] = 0
-            for topic_distribution in topic_distributions:
-                for word, weight in topic_distribution:
-                    if word == topic_id:
-                        weighted_score[topic_id] += weight
-        return weighted_score, important_words
+    # Rank ngram scores
+    ngram_ranking = sorted(list(rank_ngrams(requests, word_counts).items()),
+                           key=lambda ngram: ngram[1],
+                           reverse=True)
 
-    def get_best_topic(text):
-        num_topics = 2
-        #num_words = 2
-        n_min = 2
-        n_max = 4
-        weighted_score, topics = [], []
-        for num_words in range(n_min,n_max+1):
-            temp = get_weighted_score(text, num_topics, num_words, n_min, n_max)
-            if temp is not None:
-                temp = list(temp)
-                weighted_score += [weight for weight in list(temp[0].values())]
-                topics += list(temp[1].values())
-        if weighted_score == []:
-            return ''
-        best_topic = np.argmax(weighted_score)
-        return ' '.join(topics[best_topic])
-    res =get_best_topic(article)
-    print(res)
-    return res
-    # def preprocess(text):
-    #     result = []
-    #     for token in simple_preprocess(text):
-    #         if token not in STOPWORDS and len(token) >= 2:
-    #             result.append(token)
-    #     return ' '.join(result)
-    #
-    # for s in requests:
-    #     article += (preprocess(s) + '.')
-    #
-    #
-    #
-    # # Set the seed for reproducibility
-    # set_seed(24)
-    #
-    # # Generate a summary for the article text
-    # title = summarization_model(article[:1000], max_length=10, min_length=4, early_stopping=True)[0].get("summary_text")
-    # title = title.split('?')[0]
-    # title = title.split('.')[0]
-    print(title)
-    return title
-
+    # Construct name from best ngram
+    return ' '.join(ngram_ranking[0][0])
 
 
 def construct_cluster_names(all_requests, all_clusters):
@@ -202,6 +169,8 @@ if __name__ == '__main__':
     with open('config.json', 'r') as json_file:
         config = json.load(json_file)
 
+    start = time()
+
     analyze_unrecognized_requests(config['data_file'],
                                   config['output_file'],
                                   config['num_of_representatives'],
@@ -209,3 +178,5 @@ if __name__ == '__main__':
 
     # evaluate clustering solution against the provided one
     evaluate_clustering(config['example_solution_file'], config['output_file'])
+
+    print(f'finished: {time() - start:.2f} seconds')
