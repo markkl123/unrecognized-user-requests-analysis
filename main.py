@@ -7,7 +7,7 @@ from time import time
 from collections import Counter
 
 # Scikit-learn
-from sklearn.decomposition import PCA
+from sklearn.cluster import kmeans_plusplus
 
 # NLTK
 from nltk.util import ngrams
@@ -44,7 +44,7 @@ def cluster_requests(all_requests, min_size):
 
     # Construct clusters list
     clusters = np.full(len(embeddings), -1)
-    for cluster_id, embedding_ids in enumerate(grouped_clusters, start=1):
+    for cluster_id, embedding_ids in enumerate(grouped_clusters):
         clusters[embedding_ids] = cluster_id
 
     return embeddings, clusters
@@ -52,21 +52,22 @@ def cluster_requests(all_requests, min_size):
 
 def extract_representatives(requests, embeddings, num_rep):
     """
-    Use PCA to identify variance in the embeddings vector space.
+    Use KMeans to identify different subgroups, 'num_rep' in total, from each of which we will choose 1 representative.
 
     :param requests: list of strings, requests.
     :param embeddings: list of vectors, request embeddings.
     :param num_rep: number, desired number of representatives.
     :return: list of up to 'num_rep' requests, i.e., representatives.
     """
-    # Extract principal components, to identify variance
-    components = PCA(n_components=num_rep).fit(embeddings).components_
+    # If there are equal or less than 'num_rep' unique instances, just return the set of unique requests
+    if len(set(requests)) <= num_rep:
+        return list(set(requests))
 
-    # Choose the embeddings that are closest to the components
-    return list(set([
-        requests[np.argmin(np.linalg.norm(embeddings - component, axis=1))]
-        for component in components
-    ]))
+    # Use K-Means++ initialization to determine which data points are the most representative of the entire cluster.
+    _, indices = kmeans_plusplus(embeddings.numpy(), n_clusters=num_rep)
+
+    # Pick the chosen requests
+    return requests[indices].tolist()
 
 
 def extract_cluster_representatives(all_requests, all_embeddings, all_clusters, num_rep):
