@@ -3,9 +3,9 @@
         {
             "cluster_name": "covid 19 symptoms",
             "representative_sentences": [
-                "how would i get covid?",
-                "i'm afraid i have covid-19",
-                "what is the coronavirus?"
+                "what is covid-19",
+                "how is the united states prepared for the spread of covid 19?",
+                "how does covid spread?"
             ],
             "requests": [
                 "what is covid",
@@ -167,9 +167,9 @@
         {
             "cluster_name": "flu vs coronavirus",
             "representative_sentences": [
-                "incubation period of coronavirus?",
-                "what's the difference between flu and coronavirus?",
-                "what is the corona virus"
+                "what is the difference between the flu and coronavirus",
+                "is there a test for the coronavirus",
+                "origin of coronavirus"
             ],
             "requests": [
                 "can dogs get the corona virus?",
@@ -289,9 +289,9 @@
         {
             "cluster_name": "get tested",
             "representative_sentences": [
-                "how do i get a test?",
-                "can i get tested at my doctor's?",
-                "where can i get tested for cover-19"
+                "i am in new york where should i get tested",
+                "where i can get tested",
+                "can i get tested?"
             ],
             "requests": [
                 "do i need to get tested?",
@@ -366,9 +366,9 @@
         {
             "cluster_name": "kids school closed",
             "representative_sentences": [
-                "what schools are closed",
-                "are schools open?",
-                "when can my kids go back to high school in 78712"
+                "when can my kids go back to high school in 78712",
+                "are schools closed",
+                "are schools open"
             ],
             "requests": [
                 "is my school closed?",
@@ -443,9 +443,9 @@
         {
             "cluster_name": "people in quarantine checked?",
             "representative_sentences": [
+                "am i allowed to go to my garden in quarantine?",
                 "i came back from a country do i have to quarantine?",
-                "what can i do when i'm in quarantine?",
-                "how does quarantine work?"
+                "what can i do when i'm in quarantine?"
             ],
             "requests": [
                 "how long do i have to stay in quarantine?",
@@ -512,9 +512,9 @@
         {
             "cluster_name": "common symptoms",
             "representative_sentences": [
-                "what are the symptoms of the disease?",
-                "what are symptoms of coronvirus",
-                "what are symptoms?"
+                "tell me about the symptoms",
+                "my girlfriend has symptoms of covid-19",
+                "what are my symptoms"
             ],
             "requests": [
                 "what are symptoms",
@@ -566,8 +566,8 @@
         {
             "cluster_name": "paid sick leave",
             "representative_sentences": [
+                "paid sick leave",
                 "will my employer give me paid leave if i have coronavirus?",
-                "what if i don't have paid sick leave?",
                 "do i get paid leave time"
             ],
             "requests": [
@@ -612,9 +612,9 @@
         {
             "cluster_name": "mask or respirator help",
             "representative_sentences": [
-                "can a mask help me?",
-                "should i wear a respirator?",
-                "i'd like a respirator"
+                "should i wear a mask so i don't get infected?",
+                "will a respirator help me?",
+                "can a mask help me?"
             ],
             "requests": [
                 "i'd like a respirator",
@@ -651,9 +651,9 @@
         {
             "cluster_name": "covid be transmitted",
             "representative_sentences": [
-                "what are the symptoms of covid?",
-                "what is the risk of covid for pregnant women?",
-                "how to treat covid?"
+                "is covid transmissible from animals?",
+                "how to treat covid?",
+                "what are the first symptoms for covid?"
             ],
             "requests": [
                 "how to treat covid?",
@@ -685,9 +685,9 @@
         {
             "cluster_name": "apply for unemployment",
             "representative_sentences": [
-                "i have a question about unemployment",
-                "how do i apply for unemployment",
-                "how do i apply for unemployment benefits due to covid-19?"
+                "what do i do if i don't have unemployment insurance?",
+                "how do i apply for unemployment benefits?",
+                "apply for unemployment"
             ],
             "requests": [
                 "i can't go to work.  can i get unemployment?",
@@ -717,9 +717,9 @@
         {
             "cluster_name": "covid spread",
             "representative_sentences": [
-                "who will give me my covid test results?",
                 "how does covid spread",
-                "how can i get tested for covid?"
+                "who will give me my covid test results?",
+                "how to prevent covid infection?"
             ],
             "requests": [
                 "can pets get covid",
@@ -748,9 +748,9 @@
         {
             "cluster_name": "grocery stores still open",
             "representative_sentences": [
-                "can we go to the store?",
-                "am i allowed to go to the grocery store?",
-                "can i go to the grocery store or will i catch corona"
+                "are grocery stores still open",
+                "can i still go to the grocery store?",
+                "can i go to the store."
             ],
             "requests": [
                 "can we go to the store?",
@@ -776,9 +776,9 @@
         {
             "cluster_name": "respirators and masks",
             "representative_sentences": [
-                "when will masks be available?",
+                "where can i get masks?",
                 "why aren't there respirators?",
-                "where can i get masks?"
+                "when will masks be available at retail stores? they are not yet and we can get infected on public transport before they are."
             ],
             "requests": [
                 "when will respirators and masks be finally sold?",
@@ -802,9 +802,9 @@
         {
             "cluster_name": "people are infected",
             "representative_sentences": [
-                "number of infected",
-                "what is the mortality rate of the virus?",
-                "how many people are infected"
+                "how many people are infected",
+                "will i die if i get coronavirus>",
+                "how many cases of the virus are there in the world?"
             ],
             "requests": [
                 "how many people are infected",
@@ -851,9 +851,9 @@
         {
             "cluster_name": "high school",
             "representative_sentences": [
-                "when can my kid go back school",
-                "when will my good go back to school?",
-                "when can i return to school?"
+                "where can my kids go back to school",
+                "when can my kid go back to college",
+                "when can kid go back to school"
             ],
             "requests": [
                 "when can my high school senior go back to school",
@@ -875,9 +875,9 @@
         {
             "cluster_name": "go outside",
             "representative_sentences": [
-                "am i safe outside?",
+                "can i go for a run outside?",
                 "can i go outside",
-                "can i go to park"
+                "am i safe outside?"
             ],
             "requests": [
                 "when can i go outside",
@@ -899,9 +899,9 @@
         {
             "cluster_name": "i hate",
             "representative_sentences": [
+                "i don't like this",
                 "i hate this",
-                "i hate you",
-                "i don't like this"
+                "i hate you"
             ],
             "requests": [
                 "i hate this",
@@ -923,8 +923,8 @@
             "cluster_name": "ihave sore throat",
             "representative_sentences": [
                 "my throat and head hurt",
-                "i have a sore throat",
-                "if i only have a sore throat is it coronavirus?"
+                "ihave sore throat",
+                "i have a sore throat"
             ],
             "requests": [
                 "i have sore throat",
@@ -947,7 +947,7 @@
             "representative_sentences": [
                 "can my pets get the virus?",
                 "can dogs catch the corona virus",
-                "can the dog get sick with corona virus?"
+                "can pets contract the virus"
             ],
             "requests": [
                 "are my pets at risk from corona virus?",
@@ -989,9 +989,9 @@
         {
             "cluster_name": "countries are high risk",
             "representative_sentences": [
+                "what are the risky countries?",
                 "who is most at risk?",
-                "which countries are high risk to travel to?",
-                "which countries should i avoid?"
+                "which countries have been affected?"
             ],
             "requests": [
                 "which countries are high risk to travel to?",
@@ -1011,9 +1011,9 @@
         {
             "cluster_name": "coronavirus test kit",
             "representative_sentences": [
-                "is there a vaccine?",
                 "is there test kit for coronavirus",
-                "is the covid vaccine ready?"
+                "is the covid vaccine ready?",
+                "is there a vaccine?"
             ],
             "requests": [
                 "is the covid vaccine ready?",
@@ -1032,9 +1032,9 @@
         {
             "cluster_name": "long does the virus",
             "representative_sentences": [
-                "how long does the virus last",
+                "how long does the disease last?",
                 "when does covid vacation end?",
-                "what is the incubation period of covid?"
+                "how long does the virus last"
             ],
             "requests": [
                 "when does covid vacation end?",
@@ -1053,9 +1053,9 @@
         {
             "cluster_name": "prevent the spread",
             "representative_sentences": [
-                "what is the best way to prevent coronavirus",
-                "prevent the spread of the virus",
-                "what medicine should i avoid taking if i have coronavirus"
+                "how often do i need to clean my home to prevent the spread of coronavirus?",
+                "what is the best prevention?",
+                "what is the best way to prevent coronavirus"
             ],
             "requests": [
                 "how can i lower my temperature if i have the coronavirus?",
@@ -1074,9 +1074,9 @@
         {
             "cluster_name": "national parks closed?",
             "representative_sentences": [
-                "are the local parks open?",
                 "are the national parks closed?",
-                "what city parks are open?"
+                "are the local parks open?",
+                "what parks are open?"
             ],
             "requests": [
                 "are the national parks closed?",
@@ -1116,8 +1116,8 @@
             "cluster_name": "returning from abroad",
             "representative_sentences": [
                 "returning from abroad",
-                "i am in europe and i want to return to the united states. is that possible?",
-                "can i return to the united states if i am abroad?"
+                "can i return to the united states?",
+                "can i travel out of the country?"
             ],
             "requests": [
                 "can i return to the united states?",
@@ -1136,7 +1136,7 @@
         {
             "cluster_name": "coronavirus test kit",
             "representative_sentences": [
-                "is the covid test able to detect infection even during the incubation period?",
+                "i have cancer am i at risk of coronavirus?",
                 "coronavirus test kit",
                 "my husband has coronavirus symptoms"
             ],

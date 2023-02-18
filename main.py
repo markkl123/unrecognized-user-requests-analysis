@@ -64,7 +64,7 @@ def extract_representatives(requests, embeddings, num_rep):
         return list(set(requests))
 
     # Use K-Means++ initialization to determine which data points are the most representative of the entire cluster.
-    _, indices = kmeans_plusplus(embeddings.numpy(), n_clusters=num_rep)
+    _, indices = kmeans_plusplus(embeddings.numpy(), n_clusters=num_rep, random_state=42)
 
     # Pick the chosen requests
     return requests[indices].tolist()
